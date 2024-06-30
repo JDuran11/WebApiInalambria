@@ -22,7 +22,7 @@ namespace WebApiInalambria.DataAdapters
                     text = "cero"
                 };
 
-            //En este almaceno las unidades y de paso los numeros de 10 a 19 ya que son casos especiales
+            //En el siguiente array almaceno las unidades y de paso los numeros de 10 a 19 ya que son casos especiales
             string[] unidades = { "", "un", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez", "once", "doce", "trece", "catorce", "quince", "dieciséis", "diecisiete", "dieciocho", "diecinueve" };
             string[] decenas = { "", "", "veinte", "treinta", "cuarenta", "cincuenta", "sesenta", "setenta", "ochenta", "noventa" };
             string[] centenas = { "", "ciento", "doscientos", "trescientos", "cuatrocientos", "quinientos", "seiscientos", "setecientos", "ochocientos", "novecientos" };
@@ -59,7 +59,7 @@ namespace WebApiInalambria.DataAdapters
 
             result += (billions > 0 ? SpanishWordsForThreeDigitNumber(billions, false) + (billions == 1 ? " billón " : " billones ") : "")
                     + (millions > 0 ? SpanishWordsForThreeDigitNumber(millions, false) + (millions == 1 ? " millón " : " millones ") : "")
-                    + (thousands > 0 ? SpanishWordsForThreeDigitNumber(thousands, false) + " mil " : "")
+                    + (thousands > 0 ? (thousands == 1 ? "mil " : SpanishWordsForThreeDigitNumber(thousands, false) + " mil ") : "")
                     + (remainder > 0 ? SpanishWordsForThreeDigitNumber(remainder, true) : "");
 
             return new NumToTextDTO

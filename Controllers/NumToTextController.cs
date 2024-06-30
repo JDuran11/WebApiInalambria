@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebApiInalambria.Ports;
 using WebApiInalambria.DTOs.NumToText;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApiInalambria.Controllers
 {
@@ -15,6 +16,7 @@ namespace WebApiInalambria.Controllers
             _repository = repository;
         }
 
+        [Authorize]
         [HttpGet]
         public IActionResult Get()
         {
@@ -22,6 +24,7 @@ namespace WebApiInalambria.Controllers
             return Ok(new { message = prueba});
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult NumToText(NumDTO number)
         {
